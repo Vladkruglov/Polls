@@ -1,0 +1,15 @@
+<DOCTYPE !html>
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+    <h1>Опросы</h1>
+    <ul>
+    {% for question in Questions %}
+    <li>{{question.question_text}}</li>
+    {% endfor %}
+    </ul>
+    </body>
+</html>
