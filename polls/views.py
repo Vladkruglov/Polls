@@ -1,4 +1,4 @@
-from polls.polls.models import Question
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from . import models
@@ -7,9 +7,7 @@ from . import models
 
 def index(request):
     context={"Questions":models.Question.objects.all()}
-    g=models.Question.objects.first()
-    con={"Choices":g.choice_set.all()}
-    return render(request, "questions.html", context, con)
+    return render(request, "questions.html", context)
 
 def detail(request, question_id):
     return HttpResponse("You're looking at question %s." % question_id)
