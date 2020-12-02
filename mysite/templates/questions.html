@@ -9,6 +9,11 @@
     <ul>
     {% for question in Questions %}
     <li>{{question.question_text}}</li>
+    <ol>
+    {% for choice in question.choice_set.all %}
+    <li>{{choice.choice_text}}<li>
+    {% endfor %}
+    </ol>
     {% endfor %}
     </ul>
     </body>
