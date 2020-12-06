@@ -25,4 +25,4 @@ def make_vote(request):
     choice = models.Choice.objects.get(pk=choice_id)
     choice.votes += 1
     choice.save()
-    return HttpResponse("Вы успешно проголосовали за вопрос: {} !".format(models.Question.question_text()))
+    return HttpResponse("Вы успешно проголосовали за вопрос: {} !".format(choice.question.question_text))

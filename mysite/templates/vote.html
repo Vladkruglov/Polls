@@ -9,11 +9,11 @@
         <h2>{{ question.question_text }}</h2>
 
         <form action="/polls/make_vote/">
-            <label>Выбери вариант ответа: </label>
+            <label>Выбери вариант ответа: </label><br/>
 
             {% for choice in question.choice_set.all %}
-            <input type="radio" name="choice" id= value="{{ choice.pk }}">
-            <label for="choice_{{ choice.pk }}">{{ choice.choice_text }}</label><br>
+            <input type="radio" name="choice" id="choice_{{ choice.pk }}" value="{{ choice.pk }}">
+            <label for="choice_{{ choice.pk }}">{{ choice.choice_text }}</label><br/>
             {% endfor %}
 
             <input type=submit></input>
