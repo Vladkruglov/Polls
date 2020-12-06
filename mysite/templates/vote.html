@@ -1,0 +1,21 @@
+<DOCTYPE !html>
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+        <h1>Голосование</h1>
+        <h2>{{ question.question_text }}</h2>
+
+        <form action="/polls/make_vote/">
+            <label>Выбери вариант ответа: </label>
+
+            {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id= value="{{ choice.pk }}">
+            <label for="choice_{{ choice.pk }}">{{ choice.choice_text }}</label><br>
+            {% endfor %}
+
+            <input type=submit></input>
+    </body>
+</html>

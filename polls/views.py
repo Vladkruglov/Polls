@@ -17,4 +17,12 @@ def results(request, question_id):
     return HttpResponse(response % question_id)
 
 def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % question_id)
+    question = models.Question.objects.get(pk=question_id)
+    return render(request, "vote.html", {"question": question})
+
+def make_vote(request):
+    choice_id = request.GET.get('choice')
+    choice = models.Choice.objects.get(pk=choice_id)
+    choice.votes += 1
+    choice.save()
+    return HttpResponse("Вы успешно проголосовали за вопрос: {} !".format(models.Question.question_text()))
