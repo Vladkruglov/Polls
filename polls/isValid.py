@@ -16,7 +16,7 @@ class Solution:
             return True
         else:
             return False
-        return
+        
 
                 
 if __name__ == "__main__":

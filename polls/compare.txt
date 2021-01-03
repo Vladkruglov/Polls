@@ -1,0 +1,27 @@
+from math import random
+def compare(item, target):
+    items_class=["common",'uncommon','rare', 'legendary', 'arcane']
+    perc = None
+    if item and target in items_class:
+        if items_class[target] <= items_class[item]:
+            return False
+        else:
+            if items_class[item] - items_class[target] == 1:
+                perc = 75
+            elif items_class[item] - items_class[target] == 2:
+                perc = 50
+            elif items_class[item] - items_class[target] == 3:
+                perc = 25
+            elif items_class[item] - items_class[target] == 4:
+                perc = 10
+    else:
+        return False
+    if math.random(0, 100) <= perc:
+        return True
+    elif math.random(0, 100) >= perc:
+        return False
+
+if _name_ == "_main_":
+    item = str(input("class of item('common','uncommon','rare', 'legendary', 'arcane'): ")
+    target = str(input("class of target('common','uncommon','rare', 'legendary', 'arcane'): "))
+    print(compare(item, target))
