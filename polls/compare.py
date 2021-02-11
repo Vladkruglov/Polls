@@ -4,23 +4,23 @@ def compare(item, target):
     perc = 0
     if item and target in items_class:
         if items_class.index(target) <= items_class.index(item):
-            return False
+            return "You can't do that!"
         else:
             if items_class.index(target) - items_class.index(item) == 1:
-                perc = 75
-            elif items_class.index(target) - items_class.index(item) == 2:
                 perc = 50
-            elif items_class.index(target) - items_class.index(item) == 3:
+            elif items_class.index(target) - items_class.index(item) == 2:
                 perc = 25
-            elif items_class.index(target) - items_class.index(item) == 4:
+            elif items_class.index(target) - items_class.index(item) == 3:
                 perc = 12
-            elif items_class.index(target) - items_class.index(item) == 5:
+            elif items_class.index(target) - items_class.index(item) == 4:
                 perc = 6
+            elif items_class.index(target) - items_class.index(item) == 5:
+                perc = 3
     
     if random.randint(0, 100) <= perc:
-        return True
+        return "Succesfuly!"
     elif random.randint(0, 100) >= perc:
-        return False
+        return "Unluckily!"
 
 if __name__ == "__main__":
     item = str(input("class of item('common','uncommon','rare', 'legendary', 'arcane'): "))
